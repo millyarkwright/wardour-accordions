@@ -3,7 +3,7 @@ const accordionHeaders = document.getElementsByClassName('accordion-header')
 const accordionElements = document.getElementsByClassName('accordion')
 const toggle = document.getElementsByClassName('toggle')
 let currentIndex = -1
-const keys = [37,38,39,40,32,13] // Left, Up, Right, Down, Space, Enter
+const keys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Enter', ' ', 'Tab'] 
 
 // Remove Border
 const removeBorder = (index) => {
@@ -33,29 +33,31 @@ for (let i = 0; i < accordionHeaders.length; i++) {
 
 // Event Listener for Keyboard Navigation. 
 document.addEventListener('keydown', function(event) {
-  if (keys.includes(event.keyCode) && currentIndex === -1){
+  if (keys.includes(event.key) && currentIndex === -1){
     currentIndex = 0
     addBorder(currentIndex)
 
     // Left or up arrow pressed
-  } else if (event.keyCode === 37 || event.keyCode === 38) {
-    removeBorder(currentIndex)
-    if (currentIndex > 0) {
-      currentIndex--
-      addBorder(currentIndex)
+  } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+    if (currentIndex === 0) {
+      return
     }
+    removeBorder(currentIndex)
+    currentIndex--
+    addBorder(currentIndex)
+
 
     // Right or down arrow pressed
-  } else if (event.keyCode === 39 || event.keyCode === 40) {
+  } else if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+    if (currentIndex === accordionHeaders.length - 1) {
+      return
+    } 
     removeBorder(currentIndex)
-
-    if (currentIndex < accordionHeaders.length - 1) {
-      currentIndex++
-      addBorder(currentIndex)
-    }
+    currentIndex++
+    addBorder(currentIndex)
 
     // Enter key or space bar pressed
-  } else if (event.key === 'Enter' || event.keyCode === 32) {
+  } else if (event.key === 'Enter' || event.key === ' ') {
     toggleAccordion(currentIndex)
   }
 })
