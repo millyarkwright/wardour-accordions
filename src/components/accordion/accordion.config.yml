@@ -1,4 +1,28 @@
 prefix: "accordions"
 label: "Accordion"
+status: wip
 context:
-  placeholderText: "This is some text to ensure the data is being passed through"
+  backgroud_color: "bg-yellow"
+  heading: "All about Business Masters"
+  items: 
+    - heading: "What Are the Different Types of Business Master's Degrees"
+      content:
+        p1: "test"
+    - heading: "Take a look at the range of generalist and specialised master's degree to suit you goals."
+      content:
+        p1: "test"
+    - heading: "What are the Highest Paying Master's Degrees?"
+      content:
+        p1: "test"
+    - heading: "What is your salary potential after your business master's degree?" 
+      content:
+        p1: "test"
+    - heading: "MiM vs MBA: What's the Difference?"
+      content: 
+        p1: "Are you still unsure whether you should pursue an MBA or a Master's in Management?"
+        p2: "If you're an undergraduate student or recent graduate a career in business, a MiM could be for you. The degress typically attracts younger candidates with zero to one year of work experience."
+        p3: "In contrast, the MBA attracts old candidates who already have established careers and a good number of year's work experience - anywhere from two or three, up to more than 10."
+    
+
+
+  # placeholderText: "This is some text to ensure the data is being passed through"

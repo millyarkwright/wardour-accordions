@@ -1,1 +1,22 @@
-<h1 class="m-16 p-4 border rounded">{{ placeholderText }}</h1>
+<section class="bg-yellow">
+  <h1 class="text-center font-poppins-bold text-24px pt-48">{{ heading }}</h1>
+  <!-- ACCORDIONS CONTAINER -->
+  <div class="px-32 py-48 flex flex-col mx-auto max-w-5xl space-y-16">
+  <!-- ACCORDION  -->
+    {% for item in items %}
+    <div class="accordion">
+  <!-- ACCORDION HEADER -->
+      <div class="accordion-header bg-white p-16 flex justify-between">
+        <h2 class="font-poppins-bold text-12px">{{ item.heading }}</h2>
+        <span class="font-poppins-bold text-12px border h-16 w-16 rounded-full text-center inline-block " id="toggle">+</span>
+      </div>
+  <!-- ACCORDION PANEL -->
+      <article class="hidden">
+          {% for key, value in item.content %}
+            <p>{{ value }}</p>
+          {% endfor %}
+      </article>
+    </div>
+    {% endfor %}
+  </div>
+</section>
