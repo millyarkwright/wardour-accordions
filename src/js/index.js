@@ -1,5 +1,5 @@
 const accordion = document.getElementsByClassName("accordion-header");
-const toggle = document.getElementById("toggle");
+const toggle = document.getElementsByClassName("toggle");
 let currentIndex = -1;
 let keys = [37,38,39,40,32,13]; // Left, Up, Right, Down, Space, Enter
 
@@ -42,14 +42,16 @@ function toggleAccordion(index) {
   const panel = accordion[index].nextElementSibling;
   if (panel.style.display === "block") {
     panel.style.display = "none";
+    panel.classList.add("hidden")
     accordion[index].classList.remove("bg-blue", "text-white");
     accordion[index].classList.add("bg-white");
-    toggle.textContent = "+";
+    toggle[index].textContent = "+";
   } else {
     panel.style.display = "block";
+    panel.classList.remove("hidden")
     accordion[index].classList.remove("bg-white");
     accordion[index].classList.add("bg-blue", "text-white");
-    toggle.textContent = "x";
+    toggle[index].textContent = "x";
   }
 }
 

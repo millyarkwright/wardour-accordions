@@ -9,13 +9,13 @@
       <div class="accordion-header bg-white p-16 flex justify-between items-center cursor-pointer">
         <h2 class="font-poppins-bold text-12px">{{ item.heading }}</h2>
         <span class="border h-16 w-16 rounded-full flex justify-center items-center text-center m-6 p-8">
-          <span class="font-poppins text-12px" id="toggle">+</span>
+          <span class="font-poppins text-12px toggle" id="toggle">+</span>
         </span>
       </div>
   <!-- ACCORDION PANEL -->
       <article class="panel bg-white p-16 space-y-16 hidden">
           {% for key, value in item.content %}
-            <p class="text-12px">{{ value }}</p>
+            <p class="font-poppins text-12px">{{ value }}</p>
           {% endfor %}
       </article>
     </div>
