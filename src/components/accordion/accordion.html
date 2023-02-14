@@ -1,10 +1,10 @@
 <section class="{{background_color}}">
-  <h1 class="text-center font-poppins-bold text-24px pt-48 {% if background_color == 'bg-deep-grey' %} text-white {% endif %}">{{ heading }}</h1>
+  <h1 class="text-center font-poppins-bold text-24px pt-48 {% if background_color == 'bg-deep-grey' %} text-white {% endif %}">{{ heading }}</h1> 
   <!-- ACCORDIONS CONTAINER -->
   <div class="px-32 py-48 flex flex-col mx-auto max-w-lg space-y-16">
-  <!-- ACCORDION  -->
+  <!-- ACCORDION WRAPPER -->
     {% for item in items %}
-    <div class="accordion {% if background_color == 'bg-white' %} border {% endif %} ">
+    <div class="accordion {% if background_color == 'bg-white' %} border {% endif %}">
   <!-- ACCORDION HEADER -->
       <div class="accordion-header bg-white p-16 flex justify-between items-center cursor-pointer">
         <h2 class="font-poppins-bold text-12px">{{ item.heading }}</h2>
@@ -13,10 +13,10 @@
         </span>
       </div>
   <!-- ACCORDION PANEL -->
-      <article class="panel bg-white p-16 space-y-16 hidden {% if background_color == 'bg-white' %} border-t {% endif %}">
-          {% for key, value in item.content %}
-            <p class="font-poppins-regular text-12px">{{ value }}</p>
-          {% endfor %}
+      <article class="panel bg-white p-16 space-y-16 hidden {% if background_color == 'bg-white' %} border-t {% endif %}"> 
+        {% for key, value in item.content %}
+          <p class="font-poppins-regular text-12px">{{ value }}</p>
+        {% endfor %}
       </article>
     </div>
     {% endfor %}
