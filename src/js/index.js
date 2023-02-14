@@ -1,11 +1,12 @@
-const accordion = document.getElementsByClassName("accordion-header");
+const accordion = document.getElementsByClassName("accordion");
+const accordionHeader = document.getElementsByClassName("accordion-header");
 const toggle = document.getElementsByClassName("toggle");
 let currentIndex = -1;
 let keys = [37,38,39,40,32,13]; // Left, Up, Right, Down, Space, Enter
 
 // Event Listener for Click/Touch
-for (let i = 0; i < accordion.length; i++) {
-  accordion[i].addEventListener("click", function() {
+for (let i = 0; i < accordionHeader.length; i++) {
+  accordionHeader[i].addEventListener("click", function() {
     toggleAccordion(i);
   });
 }
@@ -15,20 +16,39 @@ document.addEventListener("keydown", function(event) {
   console.log(currentIndex)
   if (keys.includes(event.keyCode) && currentIndex === -1){
     currentIndex = 0;
-    accordion[currentIndex].classList.add("border", "border-blue");
-  } else if (event.keyCode === 37 || event.keyCode === 38) {
+    // For the White Background
+    accordion[currentIndex].classList.remove("border")
+    // For the Yellow Background
+    accordionHeader[currentIndex].classList.add("border", "border-blue");
+
     // left or up arrow pressed
-    accordion[currentIndex].classList.remove("border", "border-blue");
+  } else if (event.keyCode === 37 || event.keyCode === 38) {
+    // For the White Background
+    accordion[currentIndex].classList.add("border")
+    // For the Yellow Background
+    accordionHeader[currentIndex].classList.remove("border", "border-blue");
+
     if (currentIndex > 0) {
       currentIndex--;
-      accordion[currentIndex].classList.add("border", "border-blue");
+      // For the White Background
+      accordion[currentIndex].classList.remove("border")
+      // For the Yellow Background
+      accordionHeader[currentIndex].classList.add("border", "border-blue");
     }
-  } else if (event.keyCode === 39 || event.keyCode === 40) {
+
     // right or down arrow pressed
-    accordion[currentIndex].classList.remove("border", "border-blue");
-    if (currentIndex < accordion.length - 1) {
+  } else if (event.keyCode === 39 || event.keyCode === 40) {
+    // For the White Background
+    accordion[currentIndex].classList.add("border")
+    // For the Yellow Background
+    accordionHeader[currentIndex].classList.remove("border", "border-blue");
+
+    if (currentIndex < accordionHeader.length - 1) {
       currentIndex++;
-      accordion[currentIndex].classList.add("border", "border-blue");
+      // For the White Background
+      accordion[currentIndex].classList.remove("border")
+      // For the Yellow Background
+      accordionHeader[currentIndex].classList.add("border", "border-blue");
     }
   } else if (event.key === "Enter" || event.keyCode === 32) {
     toggleAccordion(currentIndex);
@@ -38,20 +58,24 @@ document.addEventListener("keydown", function(event) {
 // toggle active class, show/hide panel, change toggle text
 
 function toggleAccordion(index) {
-  accordion[index].classList.toggle("active");
-  const panel = accordion[index].nextElementSibling;
+  accordionHeader[index].classList.toggle("active");
+  const panel = accordionHeader[index].nextElementSibling;
   if (panel.style.display === "block") {
     panel.style.display = "none";
     panel.classList.add("hidden")
-    accordion[index].classList.remove("bg-blue", "text-white");
-    accordion[index].classList.add("bg-white");
+    accordionHeader[index].classList.remove("bg-blue", "text-white");
+    accordionHeader[index].classList.add("bg-white");
     toggle[index].textContent = "+";
+    // For the White Background
+    accordion[currentIndex].classList.remove("border")
   } else {
     panel.style.display = "block";
     panel.classList.remove("hidden")
-    accordion[index].classList.remove("bg-white");
-    accordion[index].classList.add("bg-blue", "text-white");
+    accordionHeader[index].classList.remove("bg-white");
+    accordionHeader[index].classList.add("bg-blue", "text-white");
     toggle[index].textContent = "x";
+    // For the White Background
+    accordion[currentIndex].classList.add("border")
   }
 }
 
