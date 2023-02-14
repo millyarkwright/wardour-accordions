@@ -5,7 +5,7 @@ context:
   backgroud_color: "bg-yellow"
   heading: "All about Business Masters"
   items: 
-    - heading: "What Are the Different Types of Business Master's Degrees"
+    - heading: "What Are the Different Types of Business Master's Degrees?"
       content:
         p1: "test"
     - heading: "Take a look at the range of generalist and specialised master's degree to suit you goals."
