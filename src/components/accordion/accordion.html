@@ -4,7 +4,7 @@
   <div class="px-32 py-48 flex flex-col mx-auto max-w-lg space-y-16">
   <!-- ACCORDION WRAPPER -->
     {% for item in items %}
-    <div class="accordion {% if background_color == 'bg-white' %} border {% endif %}">
+    <div class="accordion {% if background_color == 'bg-white' %} border {% endif %}" >
   <!-- ACCORDION HEADER -->
       <div class="accordion-header bg-white p-16 flex justify-between items-center cursor-pointer">
         <h2 class="font-poppins-bold text-12px">{{ item.heading }}</h2>
