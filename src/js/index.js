@@ -8,8 +8,6 @@ const keys = [37,38,39,40,32,13] // Left, Up, Right, Down, Space, Enter
 // Remove Border
 const removeBorder = (index) => {
   if (variant[0].classList.contains('bg-white')){
-    console.log('test removeborder')
-    // accordionHeaders[index].classList.remove("border");
     accordionElements[index].classList.remove('border-blue-darker', 'border-4')
   } else {
     accordionElements[index].classList.remove('border-blue-darker', 'border', 'border-4')
@@ -19,15 +17,12 @@ const removeBorder = (index) => {
 // Add Border
 const addBorder = (index) => {
   if (variant[0].classList.contains('bg-white')){
-    // accordionHeaders[index].classList.add("border");
-    console.log('test addborder')
     accordionElements[index].classList.add('border-blue-darker', 'border-4')
 
   } else {
     accordionElements[index].classList.add( 'border-blue-darker', 'border', 'border-4' )
   }
 }
-
 
 // Event Listener for Click/Touch
 for (let i = 0; i < accordionHeaders.length; i++) {
@@ -42,7 +37,7 @@ document.addEventListener('keydown', function(event) {
     currentIndex = 0
     addBorder(currentIndex)
 
-    // ! Left or up arrow pressed
+    // Left or up arrow pressed
   } else if (event.keyCode === 37 || event.keyCode === 38) {
     removeBorder(currentIndex)
     if (currentIndex > 0) {
@@ -50,7 +45,7 @@ document.addEventListener('keydown', function(event) {
       addBorder(currentIndex)
     }
 
-    // ! Right or down arrow pressed
+    // Right or down arrow pressed
   } else if (event.keyCode === 39 || event.keyCode === 40) {
     removeBorder(currentIndex)
 
@@ -59,13 +54,13 @@ document.addEventListener('keydown', function(event) {
       addBorder(currentIndex)
     }
 
-    // ! Enter key or space bar pressed
+    // Enter key or space bar pressed
   } else if (event.key === 'Enter' || event.keyCode === 32) {
     toggleAccordion(currentIndex)
   }
 })
 
-// Toggle active class, show/hide panel, change toggle text
+// Show/hide panel, change toggle text
 
 const toggleAccordion = (index) => {
   accordionHeaders[index].classList.toggle('active')
